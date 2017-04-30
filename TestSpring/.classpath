@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-beans-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-context-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-context-support-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-core-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-expression-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-instrument-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-instrument-tomcat-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-messaging-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-test-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/Programming/m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="F:/Programming/m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
