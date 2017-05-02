@@ -1,7 +1,42 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.springframework.org/schema/beans"
+	xmlns="http://www.springframework.org/schema/beans" 
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
-       <bean id="duke" class="com.lzh.beans.Juggler"/>
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+       
+    <context:annotation-config/>
+    <util:list id="songLists" value-type="java.lang.String">
+    	<value>song1</value>
+    	<value>song2</value>
+    	<value>song3</value>
+    </util:list>
+       
+	<!-- 当需要用到动态装配时，要用到SpEL -->
+	<bean id="stage" class="com.lzh.beans.Stage" factory-method="getInstance" />
+	<bean id="auditorium" class="com.lzh.beans.Auditorium"
+		init-method="turnOnLight" destroy-method="turnOffLight" />
+	<bean id="instrumentlist" class="com.lzh.beans.Instrumentlist"
+		/>
+
+	<bean id="pinao" class="com.lzh.beans.Pinao" />
+	<!-- <bean id="guitar" class="com.lzh.beans.Guitar" /> -->
+
+	<bean id="duke" class="com.lzh.beans.Juggler" />
+	<bean id="oneManBand" class="com.lzh.beans.OneManBand">
+		<property name="instruments">
+			<list>
+				<ref bean="pinao" />
+				<!-- <ref bean="guitar" /> -->
+			</list>
+		</property>
+	</bean>
+	<!--注意，可以调用方法  -->
+	<!-- <bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{instrumentlist.song.substring(0, 3)}"/> -->
+	<bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{songLists[1]}"/>
 </beans>
