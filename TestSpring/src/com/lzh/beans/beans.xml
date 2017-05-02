@@ -2,11 +2,14 @@
 	xmlns="http://www.springframework.org/schema/beans" 
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
        
@@ -16,7 +19,7 @@
     	<value>song2</value>
     	<value>song3</value>
     </util:list>
-       
+   
 	<!-- 当需要用到动态装配时，要用到SpEL -->
 	<bean id="stage" class="com.lzh.beans.Stage" factory-method="getInstance" />
 	<bean id="auditorium" class="com.lzh.beans.Auditorium"
@@ -39,4 +42,11 @@
 	<!--注意，可以调用方法  -->
 	<!-- <bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{instrumentlist.song.substring(0, 3)}"/> -->
 	<bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{songLists[1]}"/>
+	
+	<bean id="audience" class="com.lzh.beans.Audience"/>
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
+		</aop:aspect>
+	</aop:config>
 </beans>

@@ -18,11 +18,11 @@ public class TestBeans
 	{
 		
 		//可以看看是在哪个包里面
-//		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans.xml");
+		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans.xml");
 //		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans2.xml");
-		ApplicationContext context=new AnnotationConfigApplicationContext("com.lzh.beans");
-		Pinao pinao=(Pinao) context.getBean("getPinao");
-		pinao.play();
+//		ApplicationContext context=new AnnotationConfigApplicationContext("com.lzh.beans");
+//		Pinao pinao=(Pinao) context.getBean("getPinao");
+//		pinao.play();
 //		Pinao pinao=(Pinao) context.getBean("pinao");
 //		pinao.play();
 //		Stage stage=(Stage) context.getBean("stage");
@@ -31,7 +31,7 @@ public class TestBeans
 //		instrumentlist.perform();
 //		OneManBand oneManBand=(OneManBand) context.getBean("oneManBand");
 //		oneManBand.perform();
-//		Simulate simulate=(Simulate) context.getBean("simulate");
-//		simulate.perform();
+//		Performer performer=(Performer) context.getBean("simulate");
+//		performer.perform();
 	}
 }

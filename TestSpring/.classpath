@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="F:/Programming/m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar"/>
 	<classpathentry kind="lib" path="F:/Programming/m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-aop-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/ProgrammingFiles/spring-framework-4.3.0.RELEASE/libs/jars/spring-aspects-4.3.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/Programming/m2/repository/org/aspectj/aspectjweaver/1.8.2/aspectjweaver-1.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
