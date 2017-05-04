@@ -44,9 +44,24 @@
 	<bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{songLists[1]}"/>
 	
 	<bean id="audience" class="com.lzh.beans.Audience"/>
+	<bean id="magician" class="com.lzh.beans.Magician"/>
+	<bean id="volunteer" class="com.lzh.beans.Volunteer"/>
+	
 	<aop:config>
 		<aop:aspect ref="audience">
-			<aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
+			<aop:pointcut id="points1" expression="execution(* com.lzh.inter.Performer.perform(..))"/>
+			<!-- <aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
+			<aop:after-returning pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="applaud"/>
+			<aop:after-throwing pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="demandFund"/> -->
+			<aop:around method="watchPerformance" pointcut-ref="points1"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="magician">
+			<aop:pointcut id="thinking" expression="execution(* com.lzh.inter.Thinker.thinkOfSomething(String)) and args(thoughts)"/>
+			 
+			<aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
 		</aop:aspect>
 	</aop:config>
+	
+	
 </beans>
