@@ -50,9 +50,11 @@
 	<aop:config>
 		<aop:aspect ref="audience">
 			<aop:pointcut id="points1" expression="execution(* com.lzh.inter.Performer.perform(..))"/>
-			<!-- <aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
+			<!-- 
+			<aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
 			<aop:after-returning pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="applaud"/>
-			<aop:after-throwing pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="demandFund"/> -->
+			<aop:after-throwing pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="demandFund"/>
+			-->
 			<aop:around method="watchPerformance" pointcut-ref="points1"/>
 		</aop:aspect>
 		

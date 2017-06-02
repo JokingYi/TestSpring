@@ -26,7 +26,7 @@ public class Audience
 		} catch (Throwable e)
 		{
 			e.printStackTrace();
-			System.out.println("demandFund");
+			System.out.println("demand Fund");
 		}
 		
 	}
