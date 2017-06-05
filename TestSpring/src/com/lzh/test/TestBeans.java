@@ -11,6 +11,7 @@ import com.lzh.beans.OneManBand;
 import com.lzh.beans.Pinao;
 import com.lzh.beans.Simulate;
 import com.lzh.beans.Stage;
+import com.lzh.inter.Contestant;
 import com.lzh.inter.MindReader;
 import com.lzh.inter.Performer;
 import com.lzh.inter.Thinker;
@@ -27,16 +28,19 @@ public class TestBeans
 			
 //		Pinao pinao=(Pinao) context.getBean("getPinao");
 //		pinao.play();
+		//得到的实例都是一样的。
 //		Pinao pinao=(Pinao) context.getBean("pinao");
-//		pinao.play();
+//		pinao.setField("first");
+//		Pinao pinao2=(Pinao) context.getBean("pinao");
+//		System.out.println(pinao.getField());
 		
 //		Stage stage=(Stage) context.getBean("stage");
 //		Auditorium auditorium=(Auditorium) context.getBean("auditorium");
-//		Instrumentlist instrumentlist=(Instrumentlist) context.getBean("instrumentlist");
+//		Instrumentlist instrument	list=(Instrumentlist) context.getBean("instrumentlist");
 //		instrumentlist.perform();
 		
-		Performer oneManBand=(Performer) context.getBean("oneManBand");
-		oneManBand.perform();
+//		Performer oneManBand=(Performer) context.getBean("oneManBand");
+//		oneManBand.perform();
 		
 		//使用了aop之后，只能使用相应的接口来转化
 //		Performer performer=(Performer) context.getBean("simulate");
@@ -48,5 +52,8 @@ public class TestBeans
 //		MindReader reader=(MindReader) context.getBean("magician");
 //		System.out.println(reader.getThought());
 		
+		//spring aop中的 “引入 ”概念--failed
+//		Contestant contestant=(Contestant) context.getBean("pinao");
+//		contestant.receiveAward();
 	}
 }

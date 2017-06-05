@@ -13,7 +13,6 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
        
-    <context:annotation-config/>
     <util:list id="songLists" value-type="java.lang.String">
     	<value>song1</value>
     	<value>song2</value>
@@ -41,21 +40,26 @@
 	</bean>
 	<!--注意，可以调用方法  -->
 	<!-- <bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{instrumentlist.song.substring(0, 3)}"/> -->
-	<bean id="simulate" class="com.lzh.beans.Simulate" p:song="#{songLists[1]}"/>
+	<bean id="simulate" class="com.lzh.beans.Simulate"/><!-- p:song="#{songLists[1]}"  --><!--可以使用Spel语言来达到p的类似效果  -->
 	
 	<bean id="audience" class="com.lzh.beans.Audience"/>
 	<bean id="magician" class="com.lzh.beans.Magician"/>
 	<bean id="volunteer" class="com.lzh.beans.Volunteer"/>
 	
+	<bean id="aboutIntroduction" class="com.lzh.beans.AboutIntroduction"/>
+	
 	<aop:config>
 		<aop:aspect ref="audience">
-			<aop:pointcut id="points1" expression="execution(* com.lzh.inter.Performer.perform(..))"/>
-			<!-- 
+			<!--pointcut  -->
+			<aop:pointcut id="points1" expression="execution(* com.lzh.inter.Performer.perform(..)) and !bean(oneManBand)"/>
 			<aop:before pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="takeSeats"/>
+			
 			<aop:after-returning pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="applaud"/>
+			<!--
 			<aop:after-throwing pointcut="execution(* com.lzh.inter.Performer.perform(..))" method="demandFund"/>
 			-->
-			<aop:around method="watchPerformance" pointcut-ref="points1"/>
+			<!--advice  -->
+			<!-- <aop:around method="watchPerformance" pointcut-ref="points1"/> -->
 		</aop:aspect>
 		
 		<aop:aspect ref="magician">
@@ -63,7 +67,14 @@
 			 
 			<aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
 		</aop:aspect>
+		
+		<!-- <aop:aspect>
+			<aop:declare-parents
+					types-matching="com.lzh.inter.Performer+" 
+					implement-interface="com.lzh.inter.Contestant" 
+					delegate-ref="aboutIntroduction"
+					/>
+		</aop:aspect> -->
 	</aop:config>
-	
 	
 </beans>

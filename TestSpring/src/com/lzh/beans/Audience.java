@@ -16,6 +16,7 @@ public class Audience
 	{
 		System.out.println("Boo, We want our money back");
 	}
+	
 	public void watchPerformance(ProceedingJoinPoint point)
 	{
 		System.out.println("before");

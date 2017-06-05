@@ -9,8 +9,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
-       <context:component-scan base-package="com.lzh.beans">
-       <!--注册所有派生于Instrument的类  -->
-       		<context:include-filter type="assignable" expression="com.lzh.inter.Instrument"/>
+       <context:component-scan 
+       		base-package="com.lzh.annotation.bean">
        </context:component-scan>
 </beans>

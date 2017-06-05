@@ -7,6 +7,11 @@ public class Simulate implements Performer
 {
 	private String song;
 	
+	public Simulate()
+	{
+		System.out.println("测试在使用aop代理时，是否会使用目标类的构造函数");
+	}
+	
 	@Override
 	public void perform() throws Exception
 	{
