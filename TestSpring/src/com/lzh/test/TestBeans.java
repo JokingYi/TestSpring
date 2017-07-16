@@ -25,10 +25,11 @@ public class TestBeans
 		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans.xml");
 //		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans2.xml");
 //		ApplicationContext context=new AnnotationConfigApplicationContext("com.lzh.beans");
-			
-//		Pinao pinao=(Pinao) context.getBean("getPinao");
+		
+//		Pinao pinao=(Pinao) context.getBean("pinao");
 //		pinao.play();
-		//得到的实例都是一样的。
+		
+		//得到的实例都是一样的。spring框架中默认bean都是单例模式的
 //		Pinao pinao=(Pinao) context.getBean("pinao");
 //		pinao.setField("first");
 //		Pinao pinao2=(Pinao) context.getBean("pinao");
@@ -45,6 +46,10 @@ public class TestBeans
 		//使用了aop之后，只能使用相应的接口来转化
 //		Performer performer=(Performer) context.getBean("simulate");
 //		performer.perform();
+		
+//		Performer duke=(Performer) context.getBean("duke");
+//		System.out.println(duke.getClass().getName());//which means you didnt get the direct access to the real object
+//		duke.perform();
 		
 		//为通知传入参数
 //		Thinker volunteer=(Thinker) context.getBean("volunteer");

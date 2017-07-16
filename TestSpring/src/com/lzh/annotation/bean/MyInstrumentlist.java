@@ -11,11 +11,17 @@ import com.lzh.inter.Performer;
 @Component("myInstrumentlist")
 public class MyInstrumentlist implements Performer
 {
-	//将required设置为false适合没有对应的bean时，当有多个时，不能使用
+	//将required设置为false适合没有对应的bean时，将处于未匹配状态；当有多个时，不能使用
 	@Autowired(required=false)
 	@Qualifier("notStringed")
 	private Instrument instrument; 
 	
+	public MyInstrumentlist(Instrument instrument)
+	{
+		super();
+		this.instrument = instrument;
+	}
+
 	@Override
 	public void perform() throws Exception
 	{
