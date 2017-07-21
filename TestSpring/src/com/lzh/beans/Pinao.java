@@ -5,11 +5,12 @@ import com.lzh.inter.Instrument;
 public class Pinao implements Instrument
 {
 	private String field;
-	
+	private static int id=0;
 	public Pinao()
 	{
 		field="";
-//		System.out.println("test constructor");
+		id++;
+		System.out.println("test when was the constructor invoked");
 	}
 	
 	public String getField()
@@ -23,7 +24,7 @@ public class Pinao implements Instrument
 	@Override
 	public void play()
 	{
-		System.out.println("pinao");
+		System.out.println("pinao#"+id);
 	}
 
 }

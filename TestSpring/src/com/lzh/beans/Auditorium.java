@@ -6,7 +6,6 @@ public class Auditorium
 	{
 		System.out.println("in auditorium construtor");
 	}
-	
 	public void turnOnLight()
 	{
 		System.out.println("turn on light");

@@ -20,13 +20,12 @@
     </util:list>
    
 	<!-- 当需要用到动态装配时，要用到SpEL -->
-	<bean id="stage" class="com.lzh.beans.Stage" factory-method="getInstance" />
+	<bean id="stage" class="com.lzh.beans.Stage" factory-method="getInstance"/>
 	<bean id="auditorium" class="com.lzh.beans.Auditorium"
 		init-method="turnOnLight" destroy-method="turnOffLight" />
-	<bean id="instrumentlist" class="com.lzh.beans.Instrumentlist"
-		/>
-
-	<bean id="pinao" class="com.lzh.beans.Pinao" />
+	<bean id="instrumentlist" class="com.lzh.beans.Instrumentlist"/>
+	<bean id="pinao2" class="com.lzh.beans.Pinao" lazy-init="true"/>
+	<bean id="pinao" class="com.lzh.beans.Pinao" lazy-init="true"/>
 	<!-- <bean id="guitar" class="com.lzh.beans.Guitar" /> -->
 
 	<bean id="duke" class="com.lzh.beans.Juggler" />
@@ -47,6 +46,17 @@
 	<bean id="volunteer" class="com.lzh.beans.Volunteer"/>
 	
 	<bean id="aboutIntroduction" class="com.lzh.beans.AboutIntroduction"/>
+	
+	<!--when use string key, its suggested to use namespace-->
+	<!--method injection  -->
+	<bean id="injection.method.tissue" class="com.lzh.beans.Tissue" scope="prototype"/>
+	<bean id="injection.method.dryHands" class="com.lzh.beans.DryHands">
+		<lookup-method name="getOne" bean="injection.method.tissue"/>
+		<!--false，抛出异常  -->
+		<!-- <lookup-method name="getOne">
+			<bean class="com.lzh.beans.Tissue" scope="prototype"/>
+		</lookup-method> -->
+	</bean>
 	
 	<aop:config>
 		<aop:aspect ref="audience">
@@ -76,5 +86,4 @@
 					/>
 		</aop:aspect> -->
 	</aop:config>
-	
 </beans>

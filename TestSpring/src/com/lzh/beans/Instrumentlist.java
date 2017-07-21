@@ -13,6 +13,11 @@ public class Instrumentlist implements Performer
 	@Autowired
 	private Instrument instrument;
 	
+	public Instrumentlist()
+	{
+//		System.out.println("constructor in  instrumentlist--before");
+	}
+	
 	@Override
 	public void perform() throws Exception
 	{

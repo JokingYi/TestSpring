@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 
 import com.lzh.beans.Auditorium;
+import com.lzh.beans.DryHands;
 import com.lzh.beans.Instrumentlist;
 import com.lzh.beans.OneManBand;
 import com.lzh.beans.Pinao;
@@ -20,14 +21,26 @@ public class TestBeans
 {
 	public static void main(String[] args) throws Exception
 	{
-		
 		//可以看看是在哪个包里面
 		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans.xml");
 //		ApplicationContext context=new ClassPathXmlApplicationContext("com/lzh/beans/beans2.xml");
 //		ApplicationContext context=new AnnotationConfigApplicationContext("com.lzh.beans");
 		
+		//method injection
+		//忽略原方法里面的返回值
+//		DryHands dryHands=(DryHands) context.getBean("injection.method.dryHands");
+//		System.out.println(dryHands.getOne()==dryHands.getOne());
+//		System.out.println(dryHands.getOne());
+//		System.out.println(context.getBean("injection.method.tissue")
+//				==context.getBean("injection.method.tissue"));
+//		System.out.println(context.getBean("duke")
+//				==context.getBean("duke"));
+		
+		//bean是在Ioc容器初始化时直接实例化的，可以通过设置lazy-init属性为true使得bean在被第一次调用时才实例化
 //		Pinao pinao=(Pinao) context.getBean("pinao");
 //		pinao.play();
+//		Pinao pinao2=(Pinao) context.getBean("pinao2");
+//		pinao2.play();
 		
 		//得到的实例都是一样的。spring框架中默认bean都是单例模式的
 //		Pinao pinao=(Pinao) context.getBean("pinao");

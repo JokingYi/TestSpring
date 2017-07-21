@@ -14,6 +14,7 @@ public class Juggler implements Performer
 	public Juggler()
 	{
 		beanBags=3;
+//		System.out.println("constructor in juggler--after");
 	}
 	
 	@Override
